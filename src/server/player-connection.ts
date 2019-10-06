@@ -7,8 +7,8 @@ import { DataManager, Token, TokenListener } from './data';
 export function initializePlayerConnection(ws: WebSocket, data: DataManager) {
   console.log('new connection!');
   const tokenListener: TokenListener = ts => {
-    const tokens: { [id: string]: {accessToken: string}} = {};
-    ts.forEach((token, id) => tokens[id] = {accessToken: token.accessToken});
+    const tokens: { [id: string]: {token: string}} = {};
+    ts.forEach((token, id) => tokens[id] = { token: token.accessToken});
     const msg: messages.TokensUpdatedMessage = {
       tokens,
       type: 'tokens-updated',
@@ -23,7 +23,6 @@ export function initializePlayerConnection(ws: WebSocket, data: DataManager) {
   });
 
   ws.on('close', () => {
-    // TODO: test
-    // data.removeListener(tokenListener);
+    data.removeListener(tokenListener);
   });
 }

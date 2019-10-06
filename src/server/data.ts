@@ -29,4 +29,8 @@ export class DataManager {
     this.listeners.add(listener);
     listener(this.activeTokens);
   }
+
+  public removeListener(listener: TokenListener) {
+    this.listeners.delete(listener);
+  }
 }

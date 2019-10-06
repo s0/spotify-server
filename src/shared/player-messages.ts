@@ -1,7 +1,7 @@
 export interface TokensUpdatedMessage {
   type: 'tokens-updated';
   tokens: {[id: string]: {
-    accessToken: string;
+    token: string;
   }};
 }
 

@@ -63,7 +63,10 @@ async function start() {
 
   app.get(`/${config.playerKey}`, (req, res) => {
     // Load the player code
-    res.send(`<script src="/static/player.js"></script>`);
+    res.send(`
+      <script src="/static/player.js"></script>
+      <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    `);
   });
 
   app.ws(`*`, (ws, req) => {
