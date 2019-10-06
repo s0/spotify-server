@@ -10,6 +10,7 @@ interface Config {
   spotifyClientId: string;
   spotifyClientSecret: string;
   rootUrl: string;
+  sessionKey: string;
 }
 
 function isConfig(config: any): config is Config {
@@ -24,6 +25,10 @@ function isConfig(config: any): config is Config {
   }
   if (typeof config.rootUrl !== 'string') {
     console.error('missing or invalid invalid rootUrl');
+    return false;
+  }
+  if (typeof config.sessionKey !== 'string') {
+    console.error('missing or invalid invalid sessionKey');
     return false;
   }
   return true;

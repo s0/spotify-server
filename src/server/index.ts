@@ -1,48 +1,52 @@
+import cookieSession from 'cookie-session';
 import express from 'express';
 import passport from 'passport';
 import { Strategy as SpotifyStrategy } from 'passport-spotify';
-
 
 import { getConfig } from './config';
 
 const app = express();
 const port = 3000;
 
-interface User {
-  name: string;
-}
-
 async function start() {
   const config = await getConfig();
 
   console.log(config);
 
+  app.use(cookieSession({
+    name: 'session',
+    keys: [config.sessionKey]
+  }))
+
   passport.use(
-    new SpotifyStrategy<User>(
+    new SpotifyStrategy<Express.User>(
       {
         clientID: config.spotifyClientId,
         clientSecret: config.spotifyClientSecret,
         callbackURL: config.rootUrl + '/auth/spotify/callback'
       },
       (accessToken, refreshToken, expires_in, profile, done) => {
-        done(null, {name: profile.id});
+        done(null, { name: profile.displayName, accessToken, refreshToken });
       }
     )
   );
 
-  passport.serializeUser<User, string>((user, done) => {
+  passport.serializeUser<Express.User, string>((user, done) => {
     done(null, JSON.stringify(user));
   });
 
-  passport.deserializeUser<User, string>((user, done) => {
+  passport.deserializeUser<Express.User, string>((user, done) => {
     done(null, JSON.parse(user));
   });
 
   app.use(passport.initialize());
+  app.use(passport.session());
 
   app.get('/', (req, res) => {
+    const user = req.user;
     console.log(req.user);
-    res.send('Hello World! <a href="/auth/spotify>login</a>');
+    const name = user ? user.name : ' World';
+    res.send(`Hello ${name}! <a href="/auth/spotify">login</a>`);
   });
 
   app.get(
