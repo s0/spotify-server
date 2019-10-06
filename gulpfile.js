@@ -1,7 +1,9 @@
 var gulp = require('gulp');
 var clean = require('gulp-clean');
+var PluginError = require("plugin-error");
 var gutil = require("gulp-util");
 var ts = require('gulp-typescript');
+var webpack = require('webpack');
 
 var tsProject = ts.createProject('src/tsconfig.json');
 
@@ -23,4 +25,24 @@ gulp.task('ts', function () {
       .pipe(gulp.dest('build'));
 });
 
-gulp.task('default', gulp.series('clean', 'ts'));
+
+
+gulp.task('webpack', function (callback) {
+  // run webpack
+  webpack({
+    entry: {
+      player: './build/player/index.js',
+    },
+    output: {
+      filename: "[name].js",
+      path: __dirname + "/build/static"
+    },
+    mode: 'development',
+    devtool: 'source-map-inline',
+  }, function (err, stats) {
+    if (err) throw new PluginError("webpack", err);
+    callback();
+  });
+});
+
+gulp.task('default', gulp.series('clean', 'ts', 'webpack'));

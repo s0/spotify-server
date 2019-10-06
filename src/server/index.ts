@@ -42,11 +42,18 @@ async function start() {
   app.use(passport.initialize());
   app.use(passport.session());
 
+  app.use('/static', express.static('build/static'));
+
   app.get('/', (req, res) => {
     const user = req.user;
     console.log(req.user);
     const name = user ? user.name : ' World';
     res.send(`Hello ${name}! <a href="/auth/spotify">login</a>`);
+  });
+
+  app.get(`/${config.playerKey}`, (req, res) => {
+    // Load the player code
+    res.send(`<script src="/static/player.js"></script>`);
   });
 
   app.get(
