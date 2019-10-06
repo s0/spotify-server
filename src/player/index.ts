@@ -42,6 +42,8 @@ spotifySdk.spotifyWebPlaybackSDKReady.then(spotify => {
       console.log('No settings yet, avoiding setting up players');
       return;
     }
+    const name = (location.hash && location.hash.length > 1) ?
+      decodeURIComponent(location.hash.substr(1)) : settings.serverName;
     console.log('Setting up players', latestTokens);
     for (const id of Object.keys(latestTokens)) {
       const token = latestTokens[id];
@@ -52,7 +54,7 @@ spotifySdk.spotifyWebPlaybackSDKReady.then(spotify => {
         player = {
           player: new spotify.Player({
             getOAuthToken: (cb: (token: string) => void) => cb(token.token),
-            name: settings.serverName,
+            name,
           }),
           token: token.token,
         };
