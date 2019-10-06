@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Enable a device to be used as a spotify music player for multiple spotify accounts",
   "scripts": {
+    "start": "node build/server",
     "build": "gulp",
     "tslint": "tslint src/**/*.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,6 +11,8 @@
   "author": "Sam Lanning",
   "license": "MIT",
   "dependencies": {
+    "@types/express": "^4.17.1",
+    "express": "^4.17.1",
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
     "gulp-typescript": "^5.0.1",
