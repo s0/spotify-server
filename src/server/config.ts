@@ -6,7 +6,8 @@ const readFile = promisify(fs.readFile);
 
 const CONFIG_PATH = path.join(path.dirname(path.dirname(__dirname)), 'config.json');
 
-interface Config {
+export interface Config {
+  serverName: string;
   spotifyClientId: string;
   spotifyClientSecret: string;
   rootUrl: string;
@@ -16,6 +17,10 @@ interface Config {
 
 function isConfig(config: any): config is Config {
   if (!config) return false;
+  if ((typeof config.serverName) !== 'string') {
+    console.error('missing or invalid serverName');
+    return false;
+  }
   if ((typeof config.spotifyClientId) !== 'string') {
     console.error('missing or invalid spotifyClientId');
     return false;

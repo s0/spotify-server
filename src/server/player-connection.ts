@@ -2,9 +2,10 @@ import * as WebSocket from 'ws';
 
 import * as messages from '../shared/player-messages';
 
-import { DataManager, Token, TokenListener } from './data';
+import { Config } from './config';
+import { DataManager, TokenListener } from './data';
 
-export function initializePlayerConnection(ws: WebSocket, data: DataManager) {
+export function initializePlayerConnection(config: Config, ws: WebSocket, data: DataManager) {
   console.log('new connection!');
   const tokenListener: TokenListener = ts => {
     const tokens: { [id: string]: {token: string}} = {};
@@ -25,4 +26,10 @@ export function initializePlayerConnection(ws: WebSocket, data: DataManager) {
   ws.on('close', () => {
     data.removeListener(tokenListener);
   });
+
+  const settingsMessage: messages.SettingsMessages = {
+    serverName: config.serverName,
+    type: 'settings',
+  };
+  ws.send(JSON.stringify(settingsMessage));
 }

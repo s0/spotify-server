@@ -7,10 +7,12 @@ interface ActivePlayer {
   player: Spotify.SpotifyPlayer;
 }
 
-// TODO: get name from server
-const NAME = 'SPOTIFY SERVER';
-
 spotifySdk.spotifyWebPlaybackSDKReady.then(spotify => {
+
+  let settings: messages.SettingsMessages | null = null;
+  let latestTokens: { [id: string]: {
+    token: string;
+  }} = {};
 
   const activePlayers = new Map<string, ActivePlayer>();
 
@@ -35,9 +37,14 @@ spotifySdk.spotifyWebPlaybackSDKReady.then(spotify => {
     player.connect();
   }
 
-  function updateActivePlayers(msg: messages.TokensUpdatedMessage) {
-    for (const id of Object.keys(msg.tokens)) {
-      const token = msg.tokens[id];
+  function updateActivePlayers() {
+    if (!settings) {
+      console.log('No settings yet, avoiding setting up players');
+      return;
+    }
+    console.log('Setting up players', latestTokens);
+    for (const id of Object.keys(latestTokens)) {
+      const token = latestTokens[id];
       let player = activePlayers.get(id);
       if (!player) {
         // Create player
@@ -45,7 +52,7 @@ spotifySdk.spotifyWebPlaybackSDKReady.then(spotify => {
         player = {
           player: new spotify.Player({
             getOAuthToken: (cb: (token: string) => void) => cb(token.token),
-            name: NAME,
+            name: settings.serverName,
           }),
           token: token.token,
         };
@@ -79,7 +86,11 @@ spotifySdk.spotifyWebPlaybackSDKReady.then(spotify => {
       console.log(msg);
       const m: messages.ServerMessage = JSON.parse(msg.data);
       if (m.type === 'tokens-updated') {
-        updateActivePlayers(m);
+        latestTokens = m.tokens;
+        updateActivePlayers();
+      } else if (m.type === 'settings') {
+        settings = m;
+        updateActivePlayers();
       }
     });
 

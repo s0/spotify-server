@@ -1,3 +1,8 @@
+export interface SettingsMessages {
+  type: 'settings';
+  serverName: string;
+}
+
 export interface TokensUpdatedMessage {
   type: 'tokens-updated';
   tokens: {[id: string]: {
@@ -5,4 +10,4 @@ export interface TokensUpdatedMessage {
   }};
 }
 
-export type ServerMessage = TokensUpdatedMessage;
+export type ServerMessage = SettingsMessages | TokensUpdatedMessage;

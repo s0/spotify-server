@@ -73,7 +73,7 @@ async function start() {
   app.ws(`*`, (ws, req) => {
     if (req.path.indexOf(config.playerKey) !== -1) {
       // Valid player connection
-      initializePlayerConnection(ws, data);
+      initializePlayerConnection(config, ws, data);
     } else {
       ws.close();
     }
