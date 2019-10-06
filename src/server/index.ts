@@ -6,6 +6,7 @@ import { Strategy as SpotifyStrategy } from 'passport-spotify';
 
 import { getConfig } from './config';
 import { DataManager } from './data';
+import { DATA_PATH } from './paths';
 import { initializePlayerConnection } from './player-connection';
 
 const a = express();
@@ -19,7 +20,8 @@ const SPOTIFY_SCOPES = ['streaming', 'user-read-email', 'user-read-private'];
 async function start() {
   const config = await getConfig();
 
-  const data = new DataManager();
+  const data = new DataManager(DATA_PATH);
+  await data.initialize();
 
   console.log(config);
 

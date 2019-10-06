@@ -1,10 +1,9 @@
 import * as fs from 'fs';
-import * as path from 'path';
 import {promisify} from 'util';
 
-const readFile = promisify(fs.readFile);
+import { CONFIG_PATH } from './paths';
 
-const CONFIG_PATH = path.join(path.dirname(path.dirname(__dirname)), 'config.json');
+const readFile = promisify(fs.readFile);
 
 export interface Config {
   serverName: string;
