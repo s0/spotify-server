@@ -1,0 +1,20 @@
+{
+  "name": "spotify-server",
+  "version": "0.0.1",
+  "description": "Enable a device to be used as a spotify music player for multiple spotify accounts",
+  "scripts": {
+    "build": "gulp",
+    "tslint": "tslint src/**/*.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sam Lanning",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-typescript": "^5.0.1",
+    "gulp-util": "^3.0.8",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.3"
+  }
+}
