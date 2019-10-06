@@ -5,6 +5,8 @@ import passport from 'passport';
 import { Strategy as SpotifyStrategy } from 'passport-spotify';
 
 import { getConfig } from './config';
+import { DataManager } from './data';
+import { initializePlayerConnection } from './player-connection';
 
 const a = express();
 expressWs(a);
@@ -15,6 +17,8 @@ const port = 3000;
 
 async function start() {
   const config = await getConfig();
+
+  const data = new DataManager();
 
   console.log(config);
 
@@ -31,6 +35,7 @@ async function start() {
         clientSecret: config.spotifyClientSecret,
       },
       (accessToken, refreshToken, _expires_in, profile, done) => {
+        data.addNewToken(profile.id, {accessToken, refreshToken});
         done(null, { name: profile.displayName, accessToken, refreshToken });
       },
     ),
@@ -64,11 +69,7 @@ async function start() {
   app.ws(`*`, (ws, req) => {
     if (req.path.indexOf(config.playerKey) !== -1) {
       // Valid player connection
-      console.log('connection', req.path);
-      ws.on('message', (msg) => {
-        console.log(msg);
-        ws.send(msg);
-      });
+      initializePlayerConnection(ws, data);
     } else {
       ws.close();
     }
