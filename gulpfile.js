@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 var clean = require('gulp-clean');
 var PluginError = require("plugin-error");
-var gutil = require("gulp-util");
 var ts = require('gulp-typescript');
 var webpack = require('webpack');
 
@@ -10,7 +9,7 @@ var tsProject = ts.createProject('src/tsconfig.json');
 // Utility Functions
 
 function handleError(err) {
-  gutil.log("Build failed", err.message);
+  throw new PluginError("Build failed", err.message);
   process.exit(1);
 }
 

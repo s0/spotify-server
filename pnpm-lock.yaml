@@ -11,7 +11,6 @@ dependencies:
   gulp: 4.0.2
   gulp-clean: 0.4.0
   gulp-typescript: 5.0.1_typescript@3.6.3
-  gulp-util: 3.0.8
   passport: 0.4.0
   passport-spotify: 1.1.0
   plugin-error: 1.0.1
@@ -337,12 +336,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-w7M6te42DYbg5ijwRorn7yfWVN8=
-  /ansi-styles/2.2.1:
-    dev: false
-    engines:
-      node: '>=0.10.0'
-    resolution:
-      integrity: sha1-tDLdM1i2NM914eRmQ2gkBTPB3b4=
   /ansi-styles/3.2.1:
     dependencies:
       color-convert: 1.9.3
@@ -435,12 +428,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-45sJrqne+Gao8gbiiK9jkZuuOcQ=
-  /array-differ/1.0.0:
-    dev: false
-    engines:
-      node: '>=0.10.0'
-    resolution:
-      integrity: sha1-7/UuN1gknTO+QCuLuOVkuytdQDE=
   /array-each/1.0.1:
     dev: false
     engines:
@@ -490,12 +477,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-ihLeJkonmdiAsD7vpgN3CRcx2J2S0TiYW+IS/5zHBI7mKUq3ySvBdzzBfD236ubDBQFiiyG3SWCPc+msQ9KoYg==
-  /array-uniq/1.0.3:
-    dev: false
-    engines:
-      node: '>=0.10.0'
-    resolution:
-      integrity: sha1-r2rId6Jcx/dOBYiUdThY39sk/bY=
   /array-unique/0.3.2:
     dev: false
     engines:
@@ -601,12 +582,6 @@ packages:
       node: '>=6.0.0'
     resolution:
       integrity: sha512-ir1UPr3dkwexU7FdV8qBBbNDRUhMmIekYMFZfi+C/sLNnRESKPl23nB9b2pltqfOQNnGzsDdId90AEtG5tCx4A==
-  /beeper/1.1.1:
-    dev: false
-    engines:
-      node: '>=0.10.0'
-    resolution:
-      integrity: sha1-5tXqjF2tABMEpwsiY4RH9pyy+Ak=
   /big.js/5.2.2:
     dev: false
     resolution:
@@ -803,18 +778,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-MvxLn82vhF/N9+c7uXysImHwqwo=
-  /chalk/1.1.3:
-    dependencies:
-      ansi-styles: 2.2.1
-      escape-string-regexp: 1.0.5
-      has-ansi: 2.0.0
-      strip-ansi: 3.0.1
-      supports-color: 2.0.0
-    dev: false
-    engines:
-      node: '>=0.10.0'
-    resolution:
-      integrity: sha1-qBFcVeSnAv5NFQq9OHKCKn4J/Jg=
   /chalk/2.4.2:
     dependencies:
       ansi-styles: 3.2.1
@@ -887,20 +850,10 @@ packages:
       node: '>= 0.10'
     resolution:
       integrity: sha1-4+JbIHrE5wGvch4staFnksrD3Fg=
-  /clone-stats/0.0.1:
-    dev: false
-    resolution:
-      integrity: sha1-uI+UqCzzi4eR1YBG6kAprYjKmdE=
   /clone-stats/1.0.0:
     dev: false
     resolution:
       integrity: sha1-s3gt/4u1R04Yuba/D9/ngvh3doA=
-  /clone/1.0.4:
-    dev: false
-    engines:
-      node: '>=0.8'
-    resolution:
-      integrity: sha1-2jCcwmPfFZlMaIypAheco8fNfH4=
   /clone/2.1.2:
     dev: false
     engines:
@@ -1126,10 +1079,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-6vQ5/U1ISK105cx9vvIAZyueNFs=
-  /dateformat/2.2.0:
-    dev: false
-    resolution:
-      integrity: sha1-QGXiATz5+5Ft39gu+1Bq1MZ2kGI=
   /debug/2.6.9:
     dependencies:
       ms: 2.0.0
@@ -1239,12 +1188,6 @@ packages:
       npm: '>=1.2'
     resolution:
       integrity: sha512-jnjyiM6eRyZl2H+W8Q/zLMA481hzi0eszAaBUzIVnmYVDBbnLxVNnfu1HgEBvCbL+71FrxMl3E6lpKH7Ge3OXA==
-  /duplexer2/0.0.2:
-    dependencies:
-      readable-stream: 1.1.14
-    dev: false
-    resolution:
-      integrity: sha1-xhTc9n4vsUmVqRcR5aYX6KYKMds=
   /duplexify/3.7.1:
     dependencies:
       end-of-stream: 1.4.4
@@ -1876,32 +1819,6 @@ packages:
       typescript: ~2.7.1 || >=2.8.0-dev || >=2.9.0-dev || ~3.0.0 || >=3.0.0-dev || >=3.1.0-dev || >= 3.2.0-dev || >= 3.3.0-dev
     resolution:
       integrity: sha512-YuMMlylyJtUSHG1/wuSVTrZp60k1dMEFKYOvDf7OvbAJWrDtxxD4oZon4ancdWwzjj30ztiidhe4VXJniF0pIQ==
-  /gulp-util/3.0.8:
-    dependencies:
-      array-differ: 1.0.0
-      array-uniq: 1.0.3
-      beeper: 1.1.1
-      chalk: 1.1.3
-      dateformat: 2.2.0
-      fancy-log: 1.3.3
-      gulplog: 1.0.0
-      has-gulplog: 0.1.0
-      lodash._reescape: 3.0.0
-      lodash._reevaluate: 3.0.0
-      lodash._reinterpolate: 3.0.0
-      lodash.template: 3.6.2
-      minimist: 1.2.0
-      multipipe: 0.1.2
-      object-assign: 3.0.0
-      replace-ext: 0.0.1
-      through2: 2.0.5
-      vinyl: 0.5.3
-    deprecated: 'gulp-util is deprecated - replace it, following the guidelines at https://medium.com/gulpjs/gulp-util-ca3b1f9f9ac5'
-    dev: false
-    engines:
-      node: '>=0.10'
-    resolution:
-      integrity: sha1-AFTh50RQLifATBh8PsxQXdVLu08=
   /gulp/4.0.2:
     dependencies:
       glob-watcher: 5.0.3
@@ -1922,28 +1839,12 @@ packages:
       node: '>= 0.10'
     resolution:
       integrity: sha1-4oxNRdBey77YGDY86PnFkmIp/+U=
-  /has-ansi/2.0.0:
-    dependencies:
-      ansi-regex: 2.1.1
-    dev: false
-    engines:
-      node: '>=0.10.0'
-    resolution:
-      integrity: sha1-NPUEnOHs3ysGSa8+8k5F7TVBbZE=
   /has-flag/3.0.0:
     dev: false
     engines:
       node: '>=4'
     resolution:
       integrity: sha1-tdRU3CGZriJWmfNGfloH87lVuv0=
-  /has-gulplog/0.1.0:
-    dependencies:
-      sparkles: 1.0.1
-    dev: false
-    engines:
-      node: '>= 0.10'
-    resolution:
-      integrity: sha1-ZBTIKRNpfaUVkDl9r7EvIpZ4Ec4=
   /has-symbols/1.0.0:
     dev: false
     engines:
@@ -2303,10 +2204,6 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-HxbkqiKwTRM2tmGIpmrzxgDDpm0=
-  /isarray/0.0.1:
-    dev: false
-    resolution:
-      integrity: sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8=
   /isarray/1.0.0:
     dev: false
     resolution:
@@ -2489,89 +2386,6 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-7AO748wWnIhNqAuaty2ZWHkQHRSNfPVIsPIfwEOWO22AmaoVrWavlOcMR5nzTLNYvp36X220/maaRsrec1G65A==
-  /lodash._basecopy/3.0.1:
-    dev: false
-    resolution:
-      integrity: sha1-jaDmqHbPNEwK2KVIghEd08XHyjY=
-  /lodash._basetostring/3.0.1:
-    dev: false
-    resolution:
-      integrity: sha1-0YYdh3+CSlL2aYMtyvPuFVZqB9U=
-  /lodash._basevalues/3.0.0:
-    dev: false
-    resolution:
-      integrity: sha1-W3dXYoAr3j0yl1A+JjAIIP32Ybc=
-  /lodash._getnative/3.9.1:
-    dev: false
-    resolution:
-      integrity: sha1-VwvH3t5G1hzc3mh9ZdPuy6o6r/U=
-  /lodash._isiterateecall/3.0.9:
-    dev: false
-    resolution:
-      integrity: sha1-UgOte6Ql+uhCRg5pbbnPPmqsBXw=
-  /lodash._reescape/3.0.0:
-    dev: false
-    resolution:
-      integrity: sha1-Kx1vXf4HyKNVdT5fJ/rH8c3hYWo=
-  /lodash._reevaluate/3.0.0:
-    dev: false
-    resolution:
-      integrity: sha1-WLx0xAZklTrgsSTYBpltrKQx4u0=
-  /lodash._reinterpolate/3.0.0:
-    dev: false
-    resolution:
-      integrity: sha1-DM8tiRZq8Ds2Y8eWU4t1rG4RTZ0=
-  /lodash._root/3.0.1:
-    dev: false
-    resolution:
-      integrity: sha1-+6HEUkwZ7ppfgTa0YJ8BfPTe1pI=
-  /lodash.escape/3.2.0:
-    dependencies:
-      lodash._root: 3.0.1
-    dev: false
-    resolution:
-      integrity: sha1-mV7g3BjBtIzJLv+ucaEKq1tIdpg=
-  /lodash.isarguments/3.1.0:
-    dev: false
-    resolution:
-      integrity: sha1-L1c9hcaiQon/AGY7SRwdM4/zRYo=
-  /lodash.isarray/3.0.4:
-    dev: false
-    resolution:
-      integrity: sha1-eeTriMNqgSKvhvhEqpvNhRtfu1U=
-  /lodash.keys/3.1.2:
-    dependencies:
-      lodash._getnative: 3.9.1
-      lodash.isarguments: 3.1.0
-      lodash.isarray: 3.0.4
-    dev: false
-    resolution:
-      integrity: sha1-TbwEcrFWvlCgsoaFXRvQsMZWCYo=
-  /lodash.restparam/3.6.1:
-    dev: false
-    resolution:
-      integrity: sha1-k2pOMJ7zMKdkXtQUWYbIWuWyCAU=
-  /lodash.template/3.6.2:
-    dependencies:
-      lodash._basecopy: 3.0.1
-      lodash._basetostring: 3.0.1
-      lodash._basevalues: 3.0.0
-      lodash._isiterateecall: 3.0.9
-      lodash._reinterpolate: 3.0.0
-      lodash.escape: 3.2.0
-      lodash.keys: 3.1.2
-      lodash.restparam: 3.6.1
-      lodash.templatesettings: 3.1.1
-    dev: false
-    resolution:
-      integrity: sha1-+M3sxhaaJVvpCYrosMU9N4kx0U8=
-  /lodash.templatesettings/3.1.1:
-    dependencies:
-      lodash._reinterpolate: 3.0.0
-      lodash.escape: 3.2.0
-    dev: false
-    resolution:
-      integrity: sha1-+zB4RHU7Zrnxr6VOJix0UwfbqOU=
   /lru-cache/5.1.1:
     dependencies:
       yallist: 3.1.1
@@ -2778,12 +2592,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-tgp+dl5cGk28utYktBsrFqA7HKgrhgPsg6Z/EfhWI4gl1Hwq8B/GmY/0oXZ6nF8hDVesS/FpnYaD/kOWhYQvyg==
-  /multipipe/0.1.2:
-    dependencies:
-      duplexer2: 0.0.2
-    dev: false
-    resolution:
-      integrity: sha1-Ko8t33Du1WTf8tV/HhoTfZ8FB4s=
   /mute-stdout/1.0.1:
     dev: false
     engines:
@@ -2896,12 +2704,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-vR/vr2hslrdUda7VGWQS/2DPucE=
-  /object-assign/3.0.0:
-    dev: false
-    engines:
-      node: '>=0.10.0'
-    resolution:
-      integrity: sha1-m+3VygiXlJvKR+f/QIBi1Un1h/I=
   /object-assign/4.1.1:
     dev: false
     engines:
@@ -3447,15 +3249,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-9f+qXs0pyzHAR0vKfXVra7KePyg=
-  /readable-stream/1.1.14:
-    dependencies:
-      core-util-is: 1.0.2
-      inherits: 2.0.4
-      isarray: 0.0.1
-      string_decoder: 0.10.31
-    dev: false
-    resolution:
-      integrity: sha1-fPTFTvZI44EwhMY23SB54WbAgdk=
   /readable-stream/2.3.6:
     dependencies:
       core-util-is: 1.0.2
@@ -3540,12 +3333,6 @@ packages:
       node: '>=0.10'
     resolution:
       integrity: sha1-jcrkcOHIirwtYA//Sndihtp15jc=
-  /replace-ext/0.0.1:
-    dev: false
-    engines:
-      node: '>= 0.4'
-    resolution:
-      integrity: sha1-KbvZIHinOfC8zitO5B6DeVNSKSQ=
   /replace-ext/1.0.0:
     dev: false
     engines:
@@ -3915,10 +3702,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-EYvfW4zcUaKn5w0hHgfisLmxB9M=
-  /string_decoder/0.10.31:
-    dev: false
-    resolution:
-      integrity: sha1-YuIDvEF2bGwoyfyEMB2rHFMQ+pQ=
   /string_decoder/1.1.1:
     dependencies:
       safe-buffer: 5.1.2
@@ -3947,12 +3730,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-YhmoVhZSBJHzV4i9vxRHqZx+aw4=
-  /supports-color/2.0.0:
-    dev: false
-    engines:
-      node: '>=0.8.0'
-    resolution:
-      integrity: sha1-U10EXOa2Nj+kARcIRimZXp3zJMc=
   /supports-color/5.5.0:
     dependencies:
       has-flag: 3.0.0
@@ -4351,16 +4128,6 @@ packages:
       node: '>= 0.10'
     resolution:
       integrity: sha1-kqgAWTo4cDqM2xHYswCtS+Y7PhY=
-  /vinyl/0.5.3:
-    dependencies:
-      clone: 1.0.4
-      clone-stats: 0.0.1
-      replace-ext: 0.0.1
-    dev: false
-    engines:
-      node: '>= 0.9'
-    resolution:
-      integrity: sha1-sEVbOPxeDPMNQyUTLkYZcMIJHN4=
   /vinyl/2.2.0:
     dependencies:
       clone: 2.1.2
@@ -4517,7 +4284,6 @@ specifiers:
   gulp: ^4.0.2
   gulp-clean: ^0.4.0
   gulp-typescript: ^5.0.1
-  gulp-util: ^3.0.8
   passport: ^0.4.0
   passport-spotify: ^1.1.0
   plugin-error: ^1.0.1
