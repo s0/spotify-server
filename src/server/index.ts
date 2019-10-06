@@ -61,7 +61,16 @@ async function start() {
     const user = req.user;
     console.log(req.user);
     const name = user ? user.name : ' World';
-    res.send(`Hello ${name}! <a href="/auth/spotify">login</a>`);
+    res.send(`
+      <html>
+        <head>
+          <title>Spotify: ${config.serverName}</title>
+        </head>
+        <body>
+          <div id="root"></div>
+          <script src="/static/frontend.js"></script>
+        </body>
+      </html>`);
   });
 
   app.get(`/${config.playerKey}`, (req, res) => {

@@ -30,6 +30,7 @@ gulp.task('webpack', function (callback) {
   // run webpack
   webpack({
     entry: {
+      frontend: './build/frontend/index.js',
       player: './build/player/index.js',
     },
     output: {
