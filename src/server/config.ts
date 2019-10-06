@@ -9,6 +9,7 @@ const CONFIG_PATH = path.join(path.dirname(path.dirname(__dirname)), 'config.jso
 interface Config {
   spotifyClientId: string;
   spotifyClientSecret: string;
+  rootUrl: string;
 }
 
 function isConfig(config: any): config is Config {
@@ -21,6 +22,10 @@ function isConfig(config: any): config is Config {
     console.error('missing or invalid invalid spotifyClientSecret');
     return false;
   }
+  if (typeof config.rootUrl !== 'string') {
+    console.error('missing or invalid invalid rootUrl');
+    return false;
+  }
   return true;
 }
 
@@ -28,6 +33,10 @@ export async function getConfig() {
   console.log('Loading config from: ', CONFIG_PATH);
   const contents = await readFile(CONFIG_PATH);
   const conf = JSON.parse(contents.toString());
-  if (isConfig(conf)) return conf;
-  throw new Error('Invalid Config');
+  if (!isConfig(conf)) throw new Error('Invalid Config');
+
+  // Remove trailing slashes from rootUrl
+  conf.rootUrl = conf.rootUrl.replace(/\/*$/, '');
+
+  return conf;
 }

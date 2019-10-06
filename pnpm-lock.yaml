@@ -1,10 +1,13 @@
 dependencies:
   '@types/express': 4.17.1
+  '@types/passport': 1.0.1
   express: 4.17.1
   gulp: 4.0.2
   gulp-clean: 0.4.0
   gulp-typescript: 5.0.1_typescript@3.6.3
   gulp-util: 3.0.8
+  passport: 0.4.0
+  passport-spotify: 1.1.0
   tslint: 5.20.0_typescript@3.6.3
   typescript: 3.6.3
 lockfileVersion: 5.1
@@ -59,6 +62,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-Otxmr2rrZLKRYIybtdG/sgeO+tHY20GxeDjcGmUnmmlCWyEnv2a2x1ZXBo3BTec4OiTXMQCiazB8NMBf0iRlFw==
+  /@types/passport/1.0.1:
+    dependencies:
+      '@types/express': 4.17.1
+    dev: false
+    resolution:
+      integrity: sha512-oK87JjN8i8kmqb0RN0sCUB/ZjrWf3b8U45eAzZVy1ssYYgBrMOuALmvoqp7MglsilXAjxum+LS29VQqeQx6ddA==
   /@types/range-parser/1.2.3:
     dev: false
     resolution:
@@ -354,6 +363,12 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-5T6P4xPgpp0YDFvSWwEZ4NoE3aM4QBQXDzmVbraCkFj8zHM+mba8SyqB5DbZWyR7mYHo6Y7BdQo3MoA4m0TeQg==
+  /base64url/3.0.1:
+    dev: false
+    engines:
+      node: '>=6.0.0'
+    resolution:
+      integrity: sha512-ir1UPr3dkwexU7FdV8qBBbNDRUhMmIekYMFZfi+C/sLNnRESKPl23nB9b2pltqfOQNnGzsDdId90AEtG5tCx4A==
   /beeper/1.1.1:
     dev: false
     engines:
@@ -2065,6 +2080,10 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
+  /oauth/0.9.15:
+    dev: false
+    resolution:
+      integrity: sha1-vR/vr2hslrdUda7VGWQS/2DPucE=
   /object-assign/3.0.0:
     dev: false
     engines:
@@ -2213,6 +2232,62 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-s2PlXoAGym/iF4TS2yK9FdeRfxQ=
+  /passport-oauth/1.0.0:
+    dependencies:
+      passport-oauth1: 1.1.0
+      passport-oauth2: 1.5.0
+    dev: false
+    engines:
+      node: '>= 0.4.0'
+    resolution:
+      integrity: sha1-kK/2M4dUDwIImvKM2tOep/gNd98=
+  /passport-oauth1/1.1.0:
+    dependencies:
+      oauth: 0.9.15
+      passport-strategy: 1.0.0
+      utils-merge: 1.0.1
+    dev: false
+    engines:
+      node: '>= 0.4.0'
+    resolution:
+      integrity: sha1-p96YiiEfnPRoc3cTDqdN8ycwyRg=
+  /passport-oauth2/1.5.0:
+    dependencies:
+      base64url: 3.0.1
+      oauth: 0.9.15
+      passport-strategy: 1.0.0
+      uid2: 0.0.3
+      utils-merge: 1.0.1
+    dev: false
+    engines:
+      node: '>= 0.4.0'
+    resolution:
+      integrity: sha512-kqBt6vR/5VlCK8iCx1/KpY42kQ+NEHZwsSyt4Y6STiNjU+wWICG1i8ucc1FapXDGO15C5O5VZz7+7vRzrDPXXQ==
+  /passport-spotify/1.1.0:
+    dependencies:
+      passport-oauth: 1.0.0
+      querystring: 0.2.0
+      util: 0.11.1
+    dev: false
+    engines:
+      node: '>= 0.8.0'
+    resolution:
+      integrity: sha512-jLVtH7Z+5XW854H0mAsdpGJq5dMSwxQQu1jcXhq+3JlB8HuP5xkCLMuQ5K24S7WYh+cAHLrEKJPAoeo1D8CbUg==
+  /passport-strategy/1.0.0:
+    dev: false
+    engines:
+      node: '>= 0.4.0'
+    resolution:
+      integrity: sha1-tVOaqPwiWj0a0XlHbd8ja0QPUuQ=
+  /passport/0.4.0:
+    dependencies:
+      passport-strategy: 1.0.0
+      pause: 0.0.1
+    dev: false
+    engines:
+      node: '>= 0.4.0'
+    resolution:
+      integrity: sha1-xQlWkTR71a07XhgCOMORTRbwWBE=
   /path-dirname/1.0.2:
     dev: false
     resolution:
@@ -2263,6 +2338,10 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-WcRPfuSR2nBNpBXaWkBwuk+P5EE=
+  /pause/0.0.1:
+    dev: false
+    resolution:
+      integrity: sha1-HUCLP9t2kjuVQ9lvtMnf1TXZy10=
   /pify/2.3.0:
     dev: false
     engines:
@@ -2352,6 +2431,12 @@ packages:
       node: '>=0.6'
     resolution:
       integrity: sha512-VCdBRNFTX1fyE7Nb6FYoURo/SPe62QCaAyzJvUjwRaIsc+NePBEniHlvxFmmX56+HZphIGtV0XeCirBtpDrTyQ==
+  /querystring/0.2.0:
+    dev: false
+    engines:
+      node: '>=0.4.x'
+    resolution:
+      integrity: sha1-sgmEkgO7Jd+CDadW50cAWHhSFiA=
   /range-parser/1.2.1:
     dev: false
     engines:
@@ -2961,6 +3046,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-N7bceJL1CtRQ2RiG0AQME13ksR7DiuQh/QehubYcghzv20tnh+MQnQIuJddTmsbqYj+dztchykemz0zFzlvdQw==
+  /uid2/0.0.3:
+    dev: false
+    resolution:
+      integrity: sha1-SDEm4Rd03y9xuLY53NeZw3YWK4I=
   /unc-path-regex/0.1.2:
     dev: false
     engines:
@@ -3042,6 +3131,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
+  /util/0.11.1:
+    dependencies:
+      inherits: 2.0.3
+    dev: false
+    resolution:
+      integrity: sha512-HShAsny+zS2TZfaXxD9tYj4HQGlBezXZMZuM/S5PKLLoZkShZiGk9o5CzukI1LVHZvjdvZ2Sj1aW/Ndn2NB/HQ==
   /utils-merge/1.0.1:
     dev: false
     engines:
@@ -3196,10 +3291,13 @@ packages:
       integrity: sha1-a6MY6xaWFyf10oT46gA+jWFU0Mg=
 specifiers:
   '@types/express': ^4.17.1
+  '@types/passport': ^1.0.1
   express: ^4.17.1
   gulp: ^4.0.2
   gulp-clean: ^0.4.0
   gulp-typescript: ^5.0.1
   gulp-util: ^3.0.8
+  passport: ^0.4.0
+  passport-spotify: ^1.1.0
   tslint: ^5.20.0
   typescript: ^3.6.3
