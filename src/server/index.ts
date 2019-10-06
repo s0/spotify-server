@@ -14,6 +14,7 @@ type App = typeof a & expressWs.WithWebsocketMethod;
 const app = a as App;
 
 const port = 3000;
+const SPOTIFY_SCOPES = ['streaming', 'user-read-email', 'user-read-private'];
 
 async function start() {
   const config = await getConfig();
@@ -83,6 +84,7 @@ async function start() {
     passport.authenticate('spotify', {
       failureFlash: true,
       failureRedirect: '/',
+      scope: SPOTIFY_SCOPES,
       successRedirect: '/',
     }));
 
