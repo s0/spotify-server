@@ -10,7 +10,8 @@
         "no-console": false,
         "interface-name": [true, "never-prefix"],
         "variable-name": false,
-        "no-namespace": [true, "allow-declarations"]
+        "no-namespace": [true, "allow-declarations"],
+        "arrow-parens": false
     },
     "rulesDirectory": []
 }

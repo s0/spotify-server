@@ -1,11 +1,16 @@
 import cookieSession from 'cookie-session';
 import express from 'express';
+import expressWs from 'express-ws';
 import passport from 'passport';
 import { Strategy as SpotifyStrategy } from 'passport-spotify';
 
 import { getConfig } from './config';
 
-const app = express();
+const a = express();
+expressWs(a);
+type App = typeof a & expressWs.WithWebsocketMethod;
+const app = a as App;
+
 const port = 3000;
 
 async function start() {
@@ -54,6 +59,19 @@ async function start() {
   app.get(`/${config.playerKey}`, (req, res) => {
     // Load the player code
     res.send(`<script src="/static/player.js"></script>`);
+  });
+
+  app.ws(`*`, (ws, req) => {
+    if (req.path.indexOf(config.playerKey) !== -1) {
+      // Valid player connection
+      console.log('connection', req.path);
+      ws.on('message', (msg) => {
+        console.log(msg);
+        ws.send(msg);
+      });
+    } else {
+      ws.close();
+    }
   });
 
   app.get(
