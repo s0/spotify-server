@@ -14,21 +14,21 @@ async function start() {
   console.log(config);
 
   app.use(cookieSession({
+    keys: [config.sessionKey],
     name: 'session',
-    keys: [config.sessionKey]
-  }))
+  }));
 
   passport.use(
     new SpotifyStrategy<Express.User>(
       {
+        callbackURL: config.rootUrl + '/auth/spotify/callback',
         clientID: config.spotifyClientId,
         clientSecret: config.spotifyClientSecret,
-        callbackURL: config.rootUrl + '/auth/spotify/callback'
       },
-      (accessToken, refreshToken, expires_in, profile, done) => {
+      (accessToken, refreshToken, _expires_in, profile, done) => {
         done(null, { name: profile.displayName, accessToken, refreshToken });
-      }
-    )
+      },
+    ),
   );
 
   passport.serializeUser<Express.User, string>((user, done) => {
@@ -52,18 +52,15 @@ async function start() {
   app.get(
     '/auth/spotify',
     passport.authenticate('spotify', {
-      successRedirect: '/',
+      failureFlash: true,
       failureRedirect: '/',
-      failureFlash: true 
+      successRedirect: '/',
     }));
 
   app.get(
     '/auth/spotify/callback',
     passport.authenticate('spotify', { failureRedirect: '/' }),
-    function (req, res) {
-      // Successful authentication, redirect home.
-      res.redirect('/');
-    }
+    (_req, res) => res.redirect('/'),
   );
 
   app.listen(port, () => console.log(`Example app listening on port ${port}!`));

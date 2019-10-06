@@ -8,7 +8,9 @@
         "curly": false,
         "quotemark": [true, "single"],
         "no-console": false,
-        "interface-name": [true, "never-prefix"]
+        "interface-name": [true, "never-prefix"],
+        "variable-name": false,
+        "no-namespace": [true, "allow-declarations"]
     },
     "rulesDirectory": []
 }

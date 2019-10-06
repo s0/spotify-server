@@ -20,8 +20,8 @@ declare module 'passport-spotify' {
         },
         done: (
           err: unknown,
-          user: User
-        ) => void
+          user: User,
+        ) => void,
       ) => void);
   }
 }
