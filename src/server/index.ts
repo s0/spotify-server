@@ -6,7 +6,7 @@ import { Strategy as SpotifyStrategy } from 'passport-spotify';
 
 import { getConfig } from './config';
 import { DataManager } from './data';
-import { DATA_PATH } from './paths';
+import { DATA_PATH, STATIC_PATH } from './paths';
 import { initializePlayerConnection } from './player-connection';
 
 const a = express();
@@ -55,7 +55,7 @@ async function start() {
   app.use(passport.initialize());
   app.use(passport.session());
 
-  app.use('/static', express.static('build/static'));
+  app.use('/static', express.static(STATIC_PATH));
 
   app.get('/', (req, res) => {
     const user = req.user;
